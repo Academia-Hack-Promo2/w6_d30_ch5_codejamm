@@ -27,6 +27,3 @@ Elimina un todo y devuelve el todo eliminado.
 * Ruby version : 2.2.0
 
 * Database :sqlite3
-
-
-<tt>rake doc:app</tt>.
