@@ -19,10 +19,7 @@ Actualiza un todo.
 URL: /todos/:id, VERBO: DELETE 
 Elimina un todo y devuelve el todo eliminado.
 
-=== EJEMPLOS
-
-
-
+=== ENV
 
 * Ruby version : 2.2.0
 
