@@ -1,28 +1,32 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reto CRUD TODO list
 
-Things you may want to cover:
+=== ENDPOINTS
 
-* Ruby version
+URL: /todos, VERBO: GET  
+Retorna la lista de todos.
 
-* System dependencies
+URL: /todos, VERBO: POST 
+Crea un todo y retorna el todo creado.
 
-* Configuration
+URL: /todos/:id, VERBO: GET 
+Retorna un todo.
 
-* Database creation
+URL: /todos/:id, VERBO: PUT
+Actualiza un todo.
 
-* Database initialization
+URL: /todos/:id, VERBO: DELETE 
+Elimina un todo y devuelve el todo eliminado.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=== EJEMPLOS
 
 
-Please feel free to use a different markup language if you do not plan to run
+
+
+* Ruby version : 2.2.0
+
+* Database :sqlite3
+
+
 <tt>rake doc:app</tt>.
