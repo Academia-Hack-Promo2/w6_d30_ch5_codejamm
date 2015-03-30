@@ -5,24 +5,38 @@ class TodosController < ApplicationController
 
   def create
     todo = Todo.new(permit)
-    todo.save
-    render json: todo
+    if todo.save
+      render json: todo
+    else 
+      render json: {"Number of errors" => todo.errors.count, "Error" => todo.errors.full_messages}
+    end
   end
 
-  def show
-    todo = Todo.find(params[:id])
-    render json: todo
+  def show 
+    if Todo.exists?(params[:id])  
+      todo = Todo.find(params[:id])
+      render json: todo
+    else
+      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be displayed"}
+    end
   end
 
   def update
-    todo = Todo.update(params[:id], permit)
-    render json: todo
-
+    if Todo.exists?(params[:id])
+      todo = Todo.update(params[:id], permit)
+      render json: todo
+    else
+      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be updated"}
+    end
   end
 
   def destroy
-    todo = Todo.destroy(params[:id])
-    render json: todo
+    if Todo.exists?(params[:id])
+      todo = Todo.destroy(params[:id])
+      render json: todo
+    else
+      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be deleted"}
+    end
   end
 
   private
