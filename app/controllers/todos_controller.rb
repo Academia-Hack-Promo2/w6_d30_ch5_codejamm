@@ -8,7 +8,7 @@ class TodosController < ApplicationController
     if todo.save
       render json: todo
     else 
-      render json: {"Number of errors" => todo.errors.count, "Error" => todo.errors.full_messages}
+      render json: {"numberOfErrors" => todo.errors.count, "error" => todo.errors.full_messages, "message" => "validationError"}
     end
   end
 
@@ -17,7 +17,7 @@ class TodosController < ApplicationController
       todo = Todo.find(params[:id])
       render json: todo
     else
-      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be displayed"}
+      render json: {"error" => "The todo id #{params[:id]} doesn't exist. Can't be displayed"}
     end
   end
 
@@ -26,7 +26,7 @@ class TodosController < ApplicationController
       todo = Todo.update(params[:id], permit)
       render json: todo
     else
-      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be updated"}
+      render json: {"error" => "The todo id #{params[:id]} doesn't exist. Can't be updated"}
     end
   end
 
@@ -35,7 +35,7 @@ class TodosController < ApplicationController
       todo = Todo.destroy(params[:id])
       render json: todo
     else
-      render json: {"Error" => "The todo id #{params[:id]} doesn't exist. Can't be deleted"}
+      render json: {"error" => "The todo id #{params[:id]} doesn't exist. Can't be deleted"}
     end
   end
 
